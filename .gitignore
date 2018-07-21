@@ -21,3 +21,11 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+src/main/.DS_Store
+src/main/resources/.DS_Store
+.DS_Store
+.idea/*
+*.iml
+log/*
+src/test/java/com/sagacloud/Test.java
+target/*
