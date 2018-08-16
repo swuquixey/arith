@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by wo on 8/16/18.
  */
@@ -14,7 +17,6 @@ public class Arith9 {
                 System.out.println("-------");
                 System.out.println(l);
                 System.out.println(r);
-                System.out.println(r - l);
             }else if(sum > n){
                 while(sum > n){
                     sum = sum - l;
@@ -24,12 +26,32 @@ public class Arith9 {
                     System.out.println("-------");
                     System.out.println(l);
                     System.out.println(r);
-                    System.out.println(r - l);
                 }
             }
         }
     }
+
+    private static Map<Integer, Integer> cache = new HashMap<>(128);
+
+/**现在有两种砖，分别是1*1的砖和1*2的砖，用这两种砖铺 1*N 的地面。
+ 问共有多少种铺法？（输入为N，请输出相应的铺法数，经典铺砖问题）
+ * */
+    public static int paveBrick(int n){
+        if(n == 1){
+            return 1;
+        }
+        if(n == 2){
+            return 2;
+        }
+        if(cache.get(n) != null){
+            return cache.get(n);
+        }
+        int result = paveBrick(n - 1) + paveBrick(n - 2);
+        cache.put(n, result);
+        return result;
+    }
+
     public static void main(String[] args) {
-        doit(102900);
+        System.out.println(paveBrick(20));
     }
 }
