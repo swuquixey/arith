@@ -2,8 +2,13 @@ import java.util.Arrays;
 
 
 public class MidNum {
-	
-	
+
+
+	/**快速排序，从大到小
+	 * @param arr
+	 * @param start
+	 * @param end
+	 */
 	public static void quikSort(int[] arr, int start, int end){
 		if(start >= end){
 			return;

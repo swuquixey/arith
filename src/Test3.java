@@ -56,9 +56,9 @@ public class Test3 {
 	}
 
 	public static void main(String[] args) {
-		int[] a1 = new int[100];
-		int[] a2 = new int[100];
-		for (int i = 0; i < 100; i++) {
+		int[] a1 = new int[10];
+		int[] a2 = new int[10];
+		for (int i = 0; i < 10; i++) {
 			a1[i] = (int) (Math.random() * 10000 + 1);
 			a2[i] = (int) (Math.random() * 10000 + 1);
 		}

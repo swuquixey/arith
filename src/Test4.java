@@ -172,18 +172,19 @@ public class Test4 {
     }
 
     public static void main(String[] args)  {
-    	int count = 100;
-        int[] a1 = new int[count];
-        int[] a2 = new int[count];
-//    	int[] a1 = {801, 998, 166, 322, 355, 283, 98, 194, 313, 693};
-//    	int[] a2 = {21, 306, 108, 559, 915, 6, 327, 756, 335, 98};
+//    	int count = 100;
+//        int[] a1 = new int[count];
+//        int[] a2 = new int[count];
+//        for (int i=0; i<count; i++){
+//            a1[i] = (int)(Math.random()*1000 + 1);
+//            a2[i] = (int)(Math.random()*1000 + 1);
+////        	a1[i] = i;
+////            a2[i] = i + count;
+//        }
+    	int[] a1 = {801, 998, 166, 322, 355, 283, 98, 194, 313, 693};
+    	int[] a2 = {21, 306, 108, 559, 915, 6, 327, 756, 335, 98};
 
-        for (int i=0; i<count; i++){
-            a1[i] = (int)(Math.random()*1000 + 1);
-            a2[i] = (int)(Math.random()*1000 + 1);
-//        	a1[i] = i;
-//            a2[i] = i + count;
-        }
+
         int[] d1 = Arrays.copyOfRange(a1, 0, a1.length);
         int[] d2 = Arrays.copyOfRange(a2, 0, a2.length);
         int[] c1 = Arrays.copyOfRange(a1, 0, a1.length);

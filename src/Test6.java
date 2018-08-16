@@ -53,7 +53,7 @@ public class Test6 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		char[] chars = {'a','b','c','d'};
-		System.out.println(Arrays.toString(doit(chars, 2)));
+		System.out.println(Arrays.toString(doit(chars, 3)));
 
 	}
 
