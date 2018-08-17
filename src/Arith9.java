@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by wo on 8/16/18.
@@ -52,6 +51,81 @@ public class Arith9 {
     }
 
     public static void main(String[] args) {
-        System.out.println(paveBrick(20));
+//        System.out.println(paveBrick(20));
+        List<DualList> lst = arrange(12);
+        for(DualList dual : lst){
+            System.out.println(Arrays.toString(dual.lst1.toArray()));
+            System.out.println(Arrays.toString(dual.lst2.toArray()));
+        }
+        System.out.println(lst.size());
     }
+
+    static class DualList{
+        List<Integer> lst1, lst2;
+    }
+
+    /*
+    12个高矮不同的人，排成两排，每排必须是从矮到高排列，且第二排比第一排对应的人高。
+
+求排列方式有多少种？
+    * **/
+    public static List<DualList> arrange(int n){
+        if(n % 2 != 0){
+            return null;
+        }
+        if(n == 2){
+            DualList dualList = new DualList();
+            dualList.lst1 = new ArrayList<>();
+            dualList.lst2 = new ArrayList<>();
+            dualList.lst1.add(2);
+            dualList.lst2.add(1);
+            List<DualList> lst = new ArrayList<>();
+            lst.add(dualList);
+            return lst;
+        }
+        List<DualList> lst = arrange(n - 2);
+        List<DualList> relst = new ArrayList<>();
+        for(DualList dual : lst){
+            dual.lst1.add(n -1);
+            dual.lst1.add(n);
+            for(int i : dual.lst1){
+                List<Integer> newLst1 = (ArrayList)((ArrayList)dual.lst1).clone();
+                List<Integer> newLst2 = (ArrayList)((ArrayList)dual.lst2).clone();
+                newLst1.remove((Integer) i);
+                for(int j = 0; j < newLst2.size(); j++){
+                    if(newLst2.get(j) > i){
+                        newLst2.add(j,i);
+                        break;
+                    }
+                    if(j == newLst2.size() -1){
+                        newLst2.add(i);
+                        break;
+                    }
+                }
+                boolean flag = true;
+                for(int k = 0; k < newLst1.size(); k++){
+                    if(newLst1.get(k) < newLst2.get(k)){
+                        flag = false;
+                        break;
+                    }
+                }
+                if(flag){
+                    DualList dualList = new DualList();
+                    dualList.lst1 = newLst1;
+                    dualList.lst2 = newLst2;
+                    relst.add(dualList);
+                }
+            }
+        }
+        return relst;
+    }
+
+
+
+
+
+
+
+
+
 }
